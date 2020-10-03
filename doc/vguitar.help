@@ -1,0 +1,23 @@
+Virtual Guitar
+vguitr2 [-t|-s] tablature or strum mode
+	-c clip
+	-i <inputfile> -o <outputfile>
+	-A server_addr -P server_port
+	-b bpm beats per minute
+	keyboard:
+	space - in strum mode strum
+	k - in strum mode mark key
+	Keys [j|l] [n|p] - move cursor
+	Keys [eadgbh] - move cursor to string (h is hi-E)
+	Keys[0...9] - in strum move cursor to fret number
+	Keys[0...9] - in tablature set fret number
+	Keys '[' and ']' set the clip interval
+	Key 'c' plays selected clip
+Options.runningMode 0
+Options.do_clip 0
+Options.alsa_server_port 0
+Options.alsa_server_addr 129
+Options.bpm 120
+Options.clip_start 0 clip_end 10
+Input (1) /usr/share/vguitar/share/virtual_guitar_input.txt
+Output (0) virtual_guitar_output.txt

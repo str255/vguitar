@@ -1,0 +1,48 @@
+
+
+The format for running the @command{vguitar} program is:
+
+@example
+vguitar @var{option} @dots{}
+@end example
+
+@command{vguitar} supports the following options:
+
+@table @option
+
+@item --tablature
+@itemx -t
+
+@item --strum
+@itemx -s
+
+@item --clip
+@itemx -c
+
+@item --input=@var{text}
+@itemx -i
+
+@item --output=@var{text}
+@itemx -o
+
+@item --allput=@var{text}
+@itemx -u
+
+@item --addr=@var{server_add}
+@itemx -A 
+
+@item --port=@var{server_port}
+@itemx -P
+
+@item --bpm=@var{beats per minute}
+@itemx -b
+
+@item --roll=@var{roll factor}
+@itemx -r
+
+@item --version
+@itemx -v
+Print the version number and licensing information of Vguitar on
+standard output and then exit successfully.
+
+@end table

@@ -1,0 +1,63 @@
+.SH "TABLATURE KEYBOARD"
+.IP
+.HP
+\fB\ space\fR \- play selected clip
+.HP
+\fB\ #\fR \- 
+a rest (or pause) note
+.HP
+\fB\ [0...9]\fR \- 
+set fret number
+.HP
+\fB\ '<' and '>'\fR 
+move the time left / right
+.HP
+\fB\ '[' and ']'\fR
+set the clip interval
+.HP
+\fB\ 'c' \fR
+play selected clip
+.HP
+\fB\ [j|l] [n|p] \fR
+\- move cursor
+.HP
+\fB\ [eadgbh] \fR
+\- move cursor to string (h is hi\-E)
+.HP
+\fB\ 'x' \fR
+delete the selected note
+.HP
+\fB\ [.|\-]\fR 
+shorten/lengthen the note
+.HP
+\fB\ HOME / END \- \fR
+cycle running modes TAB/STM/BOX
+.SH "STRUM KEYBOARD"
+.HP
+space \- strum
+.HP
+m \- mute on/off
+.HP
+u \- roll up/down
+.HP
+k \- mark key for chord
+.HP
+o \- open string play/muted
+.HP
+q \- quit
+.HP
+M \- pop chord from stack, set fret board
+.HP
+P \- push chord onto stack
+.HP
+R \- remember chord
+.HP
+HOME / END \- cycle running modes TAB/STM/BOX
+.HP
+PAGE UP/DOWN \- select next/previous strum sequence
+.HP
+Keys [j|l] [n|p] \- move cursor
+.HP
+Arrow Keys \- move cursor
+.HP
+Keys [.|\-] shorten/lengthen the roll

@@ -1,0 +1,31 @@
+x 1. add arbitrary tuning of the six strings.
+   relative tunings of sharps (#) and flats (b) -- update doc
+   test MIDI example
+x 4. box mode key input and to tablature.
+   delete input
+x 6. stm mode conform keys w tab and box
+x 9. octothorpe use with box mode. /home/nicks/scarlet-bogonias.trax
+x 10. classicTrax file format two digit frets. (HEX) document
+11. four (bass), five (banjo), seven and eight string guitars.
+13. extend classicTrax input forgiving tablature reader.
+15. legato channel slides
+        control number dec: 68  
+        bin: 01000100	   
+        hex: 44	
+        control function: Legato Footswitch	
+        value: ≤63 Normal, ≥64 Legato
+    portamento before noteon call portamento w the starting note
+19. modeling a hammeron
+x 18. model bending a note up/down, midi pitchbends, read,save bends classicTrax
+x 16. strumming with alternate tunings 
+17. i18n internationalization l10n localization
+x 19. headless operation --headless (both tab and strum)
+x 20. virtual guitar: create input if not found. (can't open allput file gmajor-harmonic.trax
+x 14. boxmode fret markings 3.5.7.9 .
+8. record docs. update docs.
+   audacity, cheese, shotcut, simple screen recorder (ssr)
+   recordmydesktop recordmydesktop -x 2000 -y 100 --width 1000 --height  800  -o vguitar.ogv
+11. debian binary and source release
+12. github source --> distribute to debian
+x 18. hacktoberfest    https://alsa.opensrc.org/Recording_MIDI_files add vguitar
+x 21. 21 frets

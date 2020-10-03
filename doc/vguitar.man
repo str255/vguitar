@@ -1,0 +1,198 @@
+.TH vkeybd 1 "January 1, 2000"
+.LO 1
+.SH NAME
+vkeybd \- virtual keyboard on X
+
+.SH SYNOPSIS
+.B vkeybd
+[\-options]
+
+.SH DESCRIPTION
+.B vkeybd
+is a virtual keyboard for AWE/OSS, MIDI/OSS and ALSA drivers.
+It's a simple fake of a MIDI keyboard on X-windows system.
+Enjoy a music with your mouse and
+.I computer
+keyboard :-)
+
+.SH OPTIONS
+.SS "Common Options"
+.TP
+.B \--device mode
+Use the specified mode for output device.
+The argument are
+.B awe,
+.B midi
+or
+.B alsa,
+for AWE/OSS, MIDI/OSS and ALSA devices, respectively.
+Default is
+.B alsa.
+.TP	
+.B \--config file
+Use the specified file as config file (see section "KEYBOARD").
+.TP
+.B \--preset file
+Use the specified file as preset list file (see section "PRESET LIST FILE").
+.TP
+.B \--channel num
+Specify the channel to be played for normal instruments.
+Valid only for MIDI and ALSA devices. Default is 0.
+.TP
+.B \--drum num
+Specify the channel to be played for drum instruments.
+Valid only for MIDI and ALSA devices. Default is 9.
+.TP
+.B \--octave num
+Specify the number of octaves to display keys.
+Default is 3.
+
+.SS "ALSA Device Option"
+.TP
+.B \--addr destination
+Set ALSA client and port numbers to be connected.
+If argument begins with 's' or 'S', the port is opened as subscription
+port, and events are sent to all connected subscribers.  The port can be
+connected to other ports via
+.B aconnect(1).
+Otherwise,
+.B vkeybd
+connects directly to the specified port.  The argument must be
+a form like client:port or client.port, where client and port are index
+numbers listed in
+.B /proc/asound/seq/clients.
+Default is 's'.
+.TP
+.B \--name string
+Specify the name of client/port.  Some applications like tk707
+check the client/port name whether it is a valid MIDI device port.
+This options makes vkeybd possible to "fake" as a real MIDI device.
+
+.SS "OSS Sequencer Device Options"
+.TP
+.B \--seqdev file
+Specify the device file path for sequencer access.
+As default
+.B /dev/sequencer
+is used.
+.TP
+.B \--seqidx num
+Specify the synth device index for AWE32/64 WaveTable.
+If negative value is given, the device is auto-probed.
+Default value is -1.
+
+.SS "MIDI Device Option"
+.TP
+.B \--mididev num
+Speicfy the file path of MIDI device.
+Default value is /dev/midi.
+
+.SH "FILE MENU"
+.I Connection
+shows whether the
+.B vkeybd
+connects to the device.
+On OSS system, only one application is allowed to access sequencer
+device.  Thus, if one wants to play another program even using another
+device, he needs to disconnect
+.B vkeybd
+once.  On ALSA or OSS emulation
+on ALSA, you don't have to switch
+.B vkeybd
+off, since multiple access is allowed.
+
+With
+.I "Save Config",
+the current keymap and view configuration are
+saved on
+.B ~/.vkeybdrc
+config file.  This file will be read at the next
+invoke.
+
+.SH "VIEW MENU"
+Thie menu shows the check buttons to toggle the display of control
+buttons.
+
+With
+.I Key/Velocity
+button, a key and a velocity scale bars are
+shown.  The key scale indicates the lowest note value of the visible
+keyboard (as default 48 = C4).  The velocity scale bar is used to
+change the velocity of each note-on.
+
+With
+.I Control
+button, controls for the current channel and for the
+MIDI continous-controls are enabled.  The channel number is increased
+or decreased by clicking the right or left button around the shown
+channel number.  The bank and preset are remembered for each channel.
+You may choose the CC to be adjusted by pull-down menu, which
+indicates
+.I ModWheel
+as default.  Then change the parameter value with 
+the scale bar at the right side.
+
+With
+.I Pitch
+button, you may adjust pitch wheel.  The pitch goes
+back to the center position when you click the
+.I "Pitch Clear"
+button at the left.
+
+With
+.I Program
+button, the selection list of playing instrument is
+toggled.  The shown presets are read from preset list file.
+
+.SH "KEYBOARD"
+Each visible key is mapped on your computer keyboard from 'z' to '\\'.
+To use the computer keyboard, you should turn off auto repeat on your
+X display via
+.B xset(1)
+:
+.IP "" 4
+% xset -r
+.PP
+
+The key assignment can be changed by editting the config file
+.B ~/.vkeybdrc.
+Once save the current configuration via
+.I "File/Save Config"
+menu.  The config file is the Tcl source, and you may change the list
+of keymap as you wish.
+
+The keymap is a list of elements consisting on the key symbol and the
+corresponding note offset.  The key symbol is the X key symbol for
+assigned key, and note offset is the shifted note number from note key
+of beginning of keyboard, which is changed by
+.I Key
+scalebar.
+For example, when a pair of {a 8} is defined and the lowest MIDI key
+is 48, a MIDI note 56 will be turned on by pressing the key 'a'.
+
+.SH "PRESET LIST FILE"
+The preset list file is used to describe the list of MIDI preset
+names.  If the command line option is omitted, the default preset list
+file
+.B ~/vkeybd.list,
+.B ~/.vkeybd.list
+and
+.B $vkblib/vkeybd.list
+are searched sequentially.  The preset list will appear when
+.I Program
+toggle button is on, and you can select a tone to be played from the list.
+.PP
+The preset list file can be converted from
+.B SoundFont(tm)
+file via
+.B sftovkb(1)
+utility.  For example,
+.IP "" 4
+% sftovkb synthgm.sbk > vkeybd.list
+.PP
+
+.SH "SEE ALSO"
+sftovkb(1), X(1), xset(1), aconnect(1)
+
+.SH AUTHOR
+Takashi Iwai <tiwai@suse.de>

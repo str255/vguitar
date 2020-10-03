@@ -1,0 +1,599 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the GNU vguitar package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU vguitar \n"
+"Report-Msgid-Bugs-To: bug-hello@gnu.org\n"
+"POT-Creation-Date: 2020-10-02 10:01-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/vguitr2.cc:1435 src/vguitr2.cc:1994
+#, c-format
+msgid "sequence client id %d\n"
+msgstr ""
+
+#: src/vguitr2.cc:1447 src/vguitr2.cc:2006
+#, c-format
+msgid "from addr: %d:%d\n"
+msgstr ""
+
+#: src/vguitr2.cc:1448 src/vguitr2.cc:2007
+#, c-format
+msgid "to addr %d:%d\n"
+msgstr ""
+
+#: src/vguitr2.cc:1452 src/vguitr2.cc:2011
+#, c-format
+msgid "success %d\n"
+msgstr ""
+
+#: src/vguitr2.cc:1503 src/vguitr2.cc:2044
+#, c-format
+msgid "play time %d (%f) string %d fret %d\n"
+msgstr ""
+
+#: src/options.cc:110
+#, c-format
+msgid "tablature mode\n"
+msgstr ""
+
+#: src/options.cc:115
+#, c-format
+msgid "strumming mode not supported. Use -S instead.\n"
+msgstr ""
+
+#: src/options.cc:120
+#, c-format
+msgid "strumming mode 2\n"
+msgstr ""
+
+#: src/options.cc:124
+#, c-format
+msgid "Box mode\n"
+msgstr ""
+
+#: src/options.cc:168
+#, c-format
+msgid "multi_digit_fret\n"
+msgstr ""
+
+#: src/options.cc:173
+#, c-format
+msgid "allput file format -f with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:184
+#, c-format
+msgid "clip mode\n"
+msgstr ""
+
+#: src/options.cc:190
+#, c-format
+msgid "ALSA server port `%s'\n"
+msgstr ""
+
+#: src/options.cc:198
+#, c-format
+msgid "Alsa client addr `%s'\n"
+msgstr ""
+
+#: src/options.cc:215
+#, c-format
+msgid "beats per minute with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:221
+#, c-format
+msgid "loop (number of repetitions) `%s'\n"
+msgstr ""
+
+#: src/options.cc:227
+#, c-format
+msgid "roll factor `%s'\n"
+msgstr ""
+
+#: src/options.cc:233
+#, c-format
+msgid "input file -i with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:247
+#, c-format
+msgid "openD tuning\n"
+msgstr ""
+
+#: src/options.cc:253
+#, c-format
+msgid "input directory -d with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:259
+#, c-format
+msgid "output file format -e with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:268
+#, c-format
+msgid "input file format -f with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:280
+#, c-format
+msgid "output file -o with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:287
+#, c-format
+msgid "allput (input/output) files -o with value `%s'\n"
+msgstr ""
+
+#: src/options.cc:308
+#, c-format
+msgid "headless\n"
+msgstr ""
+
+#: src/options.cc:314
+#, c-format
+msgid "general tuning\n"
+msgstr ""
+
+#: src/options.cc:457
+#, c-format
+msgid "Virtual Guitar - Play guitar in any term window.\n"
+msgstr ""
+
+#: src/options.cc:458
+#, c-format
+msgid ""
+"Usage: vguitar -A port [--allput=infile.trax -allput_format=classicTrax]\n"
+msgstr ""
+
+#: src/options.cc:459
+#, c-format
+msgid ""
+"Play  guitar  in a term window. Use with a MIDI synthesizer (qsynth) by "
+"specifying the ALSA synthesizer address and port. These can be listed using "
+"aconnect -l. Tablature, Box, and Strum modes are supported. Alternative  "
+"tunings  of  OpenD,  MIDI, and relative are supported. File format is "
+"classicTrax which is easily tablature human readable.\n"
+msgstr ""
+
+#: src/options.cc:461
+#, c-format
+msgid "*OPTIONS*\n"
+msgstr ""
+
+#: src/options.cc:462
+#, c-format
+msgid " -[t|S|M]                  tablature, strum mode 2, or box mode\n"
+msgstr ""
+
+#: src/options.cc:463
+#, c-format
+msgid " -c --clip                   use clip interval (default).\n"
+msgstr ""
+
+#: src/options.cc:464
+#, c-format
+msgid " -d --dir                    <directory>\n"
+msgstr ""
+
+#: src/options.cc:465
+#, c-format
+msgid " -A --addr                   (eg 128:0) -P --port\n"
+msgstr ""
+
+#: src/options.cc:466
+#, c-format
+msgid " -u --allput[=FILE]\n"
+msgstr ""
+
+#: src/options.cc:467
+#, c-format
+msgid " -2 --allput_format[=classicTrax]\n"
+msgstr ""
+
+#: src/options.cc:468
+#, c-format
+msgid " -D --openD_tuning           alternate tuning\n"
+msgstr ""
+
+#: src/options.cc:469
+#, c-format
+msgid " -Z --general_tuning         alternate relative or MIDI tunings\n"
+msgstr ""
+
+#: src/options.cc:470
+#, c-format
+msgid " -i --input[=FILE]\n"
+msgstr ""
+
+#: src/options.cc:471
+#, c-format
+msgid " -o --output[=FILE]\n"
+msgstr ""
+
+#: src/options.cc:472
+#, c-format
+msgid " -b --bpm                    beats per minute\n"
+msgstr ""
+
+#: src/options.cc:473
+#, c-format
+msgid " -l --loop                   number of repetitions\n"
+msgstr ""
+
+#: src/options.cc:474
+#, c-format
+msgid " -r --roll                   roll factor\n"
+msgstr ""
+
+#: src/options.cc:475
+#, c-format
+msgid " -C --chord[=CHORD]\n"
+msgstr ""
+
+#: src/options.cc:476
+#, c-format
+msgid " -q --strum_sequence=[strum_sequence]\n"
+msgstr ""
+
+#: src/options.cc:477
+#, c-format
+msgid " -1 --multi_digit_fret      default false\n"
+msgstr ""
+
+#: src/options.cc:478
+#, c-format
+msgid " -e --output_format[=classicTrax]\n"
+msgstr ""
+
+#: src/options.cc:479
+#, c-format
+msgid " -f --input_format[=classicTrax]\n"
+msgstr ""
+
+#: src/options.cc:480
+#, c-format
+msgid " -g --headless              run without term\n"
+msgstr ""
+
+#: src/options.cc:483
+#, c-format
+msgid "*Tablature Keyboard*\n"
+msgstr ""
+
+#: src/options.cc:484
+#, c-format
+msgid " space - play selected clip\n"
+msgstr ""
+
+#: src/options.cc:485
+#, c-format
+msgid " Key # - a rest (or pause) note\n"
+msgstr ""
+
+#: src/options.cc:486
+#, c-format
+msgid " Keys[0...9] - set fret number\n"
+msgstr ""
+
+#: src/options.cc:487
+#, c-format
+msgid " Keys '<' and '>' move the time left / right\n"
+msgstr ""
+
+#: src/options.cc:488
+#, c-format
+msgid " Keys '[' and ']' set the clip interval\n"
+msgstr ""
+
+#: src/options.cc:489
+#, c-format
+msgid " Key 'c' play selected clip\n"
+msgstr ""
+
+#: src/options.cc:490 src/options.cc:509
+#, c-format
+msgid " Keys [j|l] [n|p] - move cursor\n"
+msgstr ""
+
+#: src/options.cc:491
+#, c-format
+msgid " Keys [eadgbh] - move cursor to string (h is hi-E)\n"
+msgstr ""
+
+#: src/options.cc:492
+#, c-format
+msgid " Key 'x' delete the selected note\n"
+msgstr ""
+
+#: src/options.cc:493
+#, c-format
+msgid " Keys [.|-] shorten/lengthen the note\n"
+msgstr ""
+
+#: src/options.cc:494 src/options.cc:506
+#, c-format
+msgid " HOME / END - cycle running modes TAB/STM/BOX\n"
+msgstr ""
+
+#: src/options.cc:496
+#, c-format
+msgid "*Strum Keyboard*\n"
+msgstr ""
+
+#: src/options.cc:497
+#, c-format
+msgid " space - strum\n"
+msgstr ""
+
+#: src/options.cc:498
+#, c-format
+msgid " m - mute on/off\n"
+msgstr ""
+
+#: src/options.cc:499
+#, c-format
+msgid " u - roll up/down\n"
+msgstr ""
+
+#: src/options.cc:500
+#, c-format
+msgid " k - mark key for chord\n"
+msgstr ""
+
+#: src/options.cc:501
+#, c-format
+msgid " o - open string play/muted\n"
+msgstr ""
+
+#: src/options.cc:502
+#, c-format
+msgid " q - quit\n"
+msgstr ""
+
+#: src/options.cc:503
+#, c-format
+msgid " M - pop chord from stack, set fret board\n"
+msgstr ""
+
+#: src/options.cc:504
+#, c-format
+msgid " P - push chord onto stack\n"
+msgstr ""
+
+#: src/options.cc:505
+#, c-format
+msgid " R - remember chord\n"
+msgstr ""
+
+#: src/options.cc:507
+#, c-format
+msgid " END  - switch to strum2 mode\n"
+msgstr ""
+
+#: src/options.cc:508
+#, c-format
+msgid " PAGE UP/DOWN - select next/previous strum sequence\n"
+msgstr ""
+
+#: src/options.cc:510
+#, c-format
+msgid " Arrow Keys - move cursor\n"
+msgstr ""
+
+#: src/options.cc:511
+#, c-format
+msgid " Keys [.|-] shorten/lengthen the roll\n"
+msgstr ""
+
+#: src/options.cc:513
+#, c-format
+msgid "Examples:\n"
+msgstr ""
+
+#: src/options.cc:514
+#, c-format
+msgid ""
+"vguitar -A 128:0 --allput auld-lang-syne.txt\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:515
+#, c-format
+msgid ""
+"vguitar -A 128:0 --allput_format classicTrax --allput open1.trax -Z"
+"\"E55545\"   (relative tuning from E)\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:516
+#, c-format
+msgid ""
+"vguitar -A 128:0 --allput_format classicTrax --input bwv996-a.trax --input "
+"bwv996-b.trax --output=\"combined.trax\"\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:517
+#, c-format
+msgid ""
+"vguitar -A 128:0 -S --roll=0.1    (strum mode)\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:518
+#, c-format
+msgid ""
+"Example of interactive strum mode, two strum sequences, and three chords and "
+"a stack pop (M):\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:519
+#, c-format
+msgid ""
+"vguitar -A 129:0 -S --chord=\"Aexhx\" --chord=\"Eexaxdxgxbxh1\" --chord="
+"\"Dexaxdxg3b2h3\" -q \"dd1Muuuu\" -q \"dudu\" \n"
+"\n"
+msgstr ""
+
+#: src/options.cc:520
+#, c-format
+msgid ""
+"Example of interactive strum mode, two strum sequences, and four chords at "
+"200 beats per minute\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:521
+#, c-format
+msgid ""
+"vguitar -A 128:0 -S --chord=\"Aexd2g2b2\" --chord=\"Fe2a4d4g2b2h2\" --chord="
+"\"Dexaxg2b3h2\" --chord=\"Ea2d2g1\" -q \"d2du2udu\" -q \"d2du2ududd\" --"
+"bpm=200\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:522
+#, c-format
+msgid ""
+"Example of strum mode,  two chords (A and D) in one strum sequences, at 200 "
+"beats per minute:\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:523
+#, c-format
+msgid ""
+"vguitar -A 128:0 -S --chord=\"Aexd2g2b2\" --chord=\"Dexaxg2b3h2\" -q "
+"\"Ad2Ddu2udu\" --bpm=200 --headless\n"
+"\n"
+msgstr ""
+
+#: src/options.cc:571
+#, c-format
+msgid "virtual guitar: can't open input file %s\n"
+msgstr ""
+
+#: src/options.cc:582
+#, c-format
+msgid "record %d: time=%d duration=%f string=%d fret=%d velocity=%d\n"
+msgstr ""
+
+#: src/options.cc:728
+#, c-format
+msgid "output only supported in tablature mode\n"
+msgstr ""
+
+#: src/options.cc:742
+#, c-format
+msgid "virtual guitar: can't open output file %s\n"
+msgstr ""
+
+#: lib/error.c:191
+msgid "Unknown system error"
+msgstr ""
+
+#: lib/getopt.c:547 lib/getopt.c:576
+#, c-format
+msgid "%s: option '%s' is ambiguous; possibilities:"
+msgstr ""
+
+#: lib/getopt.c:624 lib/getopt.c:628
+#, c-format
+msgid "%s: option '--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:637 lib/getopt.c:642
+#, c-format
+msgid "%s: option '%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:685 lib/getopt.c:704
+#, c-format
+msgid "%s: option '--%s' requires an argument\n"
+msgstr ""
+
+#: lib/getopt.c:742 lib/getopt.c:745
+#, c-format
+msgid "%s: unrecognized option '--%s'\n"
+msgstr ""
+
+#: lib/getopt.c:753 lib/getopt.c:756
+#, c-format
+msgid "%s: unrecognized option '%c%s'\n"
+msgstr ""
+
+#: lib/getopt.c:805 lib/getopt.c:808
+#, c-format
+msgid "%s: invalid option -- '%c'\n"
+msgstr ""
+
+#: lib/getopt.c:861 lib/getopt.c:878 lib/getopt.c:1088 lib/getopt.c:1106
+#, c-format
+msgid "%s: option requires an argument -- '%c'\n"
+msgstr ""
+
+#: lib/getopt.c:934 lib/getopt.c:950
+#, c-format
+msgid "%s: option '-W %s' is ambiguous\n"
+msgstr ""
+
+#: lib/getopt.c:974 lib/getopt.c:992
+#, c-format
+msgid "%s: option '-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:1013 lib/getopt.c:1031
+#, c-format
+msgid "%s: option '-W %s' requires an argument\n"
+msgstr ""
+
+#: lib/closeout.c:112
+msgid "write error"
+msgstr ""
+
+#. TRANSLATORS:
+#. Get translations for open and closing quotation marks.
+#. The message catalog should translate "`" to a left
+#. quotation mark suitable for the locale, and similarly for
+#. "'".  For example, a French Unicode local should translate
+#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), respectively.
+#.
+#. If the catalog has no translation, we will try to
+#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
+#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
+#. current locale is not Unicode, locale_quoting_style
+#. will quote 'like this', and clocale_quoting_style will
+#. quote "like this".  You should always include translations
+#. for "`" and "'" even if U+2018 and U+2019 are appropriate
+#. for your locale.
+#.
+#. If you don't know what to put here, please see
+#. <http://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
+#. and use glyphs suitable for your language.
+#: lib/quotearg.c:312
+msgid "`"
+msgstr ""
+
+#: lib/quotearg.c:313
+msgid "'"
+msgstr ""
+
+#: lib/xalloc-die.c:34
+msgid "memory exhausted"
+msgstr ""

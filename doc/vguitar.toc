@@ -1,0 +1,8 @@
+@numchapentry{Overview}{1}{Overview}{1}
+@numchapentry{Sample output}{2}{Sample output}{2}
+@numchapentry{Invoking @command {vguitar}}{3}{Invoking vguitar}{3}
+@numchapentry{Tunings}{4}{Tunings}{4}
+@numchapentry{Keyboard strum mode}{5}{Keyboard strum mode}{5}
+@numchapentry{Reporting bugs}{6}{Reporting bugs}{6}
+@appentry{GNU Free Documentation License}{A}{GNU Free Documentation License}{7}
+@unnchapentry{Concept index}{10001}{Concept index}{15}

@@ -1,0 +1,269 @@
+\input texinfo @c -*-texinfo-*-
+@c %**start of header
+@setfilename vguitar.info
+@include version.texi
+@settitle Virtual Guitar (vguitar) @value{VERSION}
+
+@c Define a new index for options.
+@c @defcodeindex op
+@c Combine everything into one index (arbitrarily chosen to be the
+@c concept index).
+@c @syncodeindex op
+@c %**end of header
+
+@copying
+This manual is for Virtual Guitar (vguitar) (version @value{VERSION}, @value{UPDATED}).
+
+
+Copyright @copyright{} 2017,2018 Nicholas C. Strauss
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+@end quotation
+@end copying
+@c If your manual is published on paper by the FSF, it should include
+@c the standard FSF Front-Cover and Back-Cover Texts, as given in
+@c maintain.texi.
+
+@dircategory Basics
+@direntry
+* Vguitar: (vguitar).               Vguitar, GNU world.
+@end direntry
+
+@titlepage
+@title GNU Vguitar
+@subtitle for version @value{VERSION}, @value{UPDATED}
+@author Nick Strauss (@email{nicks@@nick-strauss.com})
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+
+@ifnottex
+@node TOP
+@top GNU Vguitar
+
+This manual is for Virtual Guitar (version @value{VERSION}, @value{UPDATED}).
+@end ifnottex
+
+@menu
+* Overview::		General purpose and information.
+* Invoking vguitar::	How to run @command{vguitar}.
+* Modes::               Tablature, map, strum modes
+* Tablature mode::      Tablature mode introduction
+* Tablature keyboard::  Tablature keyboard
+* Map mode::            Map mode introduction TODO
+* Map keyboard::        Map keyboard TODO
+* Strum mode::          Strum mode introduction
+* Strum keyboard::      Strum keyboard
+* Tunings::             Standard and other tunings TODO
+* Sample output::	Sample output from @command{vguitar}.
+* Examples::            Examples TODO
+* Reporting bugs::	Sending bug reports and feature suggestions.
+* GNU Free Documentation License:: Copying and sharing this documentation.
+* Concept index::	Index of concepts.
+@end menu
+
+
+@node Overview,,,TOP
+@chapter Overview
+@cindex Introduction
+Vguitar is a virtual guitar instrument for ALSA drivers. It's a GNU/Linux ncurses 
+six string guitar in a terminal.
+Enjoy music, the guitar, with your keyboard. :->
+
+@node Modes,,,TOP
+Vguitar repurposes its virtual fret board to support the different requirements of the
+guitar player. The fret board looks mostly the same, but its meaning changes in different
+modes. At any given time, only one mode is active, you can start vguitar in a mode, and 
+while running, you can switch between modes using the HOME and END keys. 
+
+@node Strum mode,,,TOP
+@cindex Strum mode
+Strum mode (-S) models the guitar geometry of of six strings with the play initiated by the touch of the spacebar key.
+Touch the key 'u' once, plays of a roll from high to low, twice from low to high. Touching the keys
+ '.' and '-' shorten/lengthen the roll.
+
+One can customize the roll using a sequence noted on the bridge. An example of this is Travis picking.
+'b' to play the strings according the sequence noted on the bridge. 
+
+Just like in a real guitar, one can set a string to be open or closed, and place one's virtual 
+fingers on the various frets along the strings, by marking an entry using the 'k' key. Mark open strings using the 'o' key.
+
+Add strum patterns on the command line (-q), and select with PAGE-UP and PAGE-DOWN keys. Chords
+can also be added on the command line (--chord) and also remembered (-R), and also push-pop stacked (-M and -P).
+
+@cindex Tablature mode
+@node Tablature mode,,,TOP
+In tablature mode, the melody plays along horizontal (X) axis which represents time with each
+fret a quarter note. The vertical (Y) axis are the six strings of the guitar with the high E
+at the top, and low E at the bottom. Entries are numbers that specify the fret held for a given string.
+So the Vguitar fretboard represents time and strings, with the numbers corresponding to the fret.
+
+@menu
+0 corresponds to an open note. 
+Mark entry by using a number.
+Play a clip with 'c' or using the space key. 
+You can lengthen a note with '-' and shrink a note with '.'.
+You can add a rest with the octothorpe '#'. 
+TODO You can add a slide by adding a forward slash '/' between adjacent columns. 
+@end menu
+
+@cindex Map mode
+@node Map mode,,,TOP
+ TODO
+In map mode,  models the guitar geometry of of six strings with the play initiated by the touch of the spacebar key.
+One can set a string to be played at a fret, hammered on, or sliding from from one fret to another. The number
+that one enters specifies the play sequence. So for example for the high B string in EADGBE tuning, one can enter 1 on
+the first, and enter 2 on the third fret with the slide. 
+
+
+@node Sample output,,,TOP
+@chapter Sample output
+
+@node Invoking vguitar,,,TOP
+@chapter Invoking @command{vguitar}
+@cindex invoking
+@cindex options
+@cindex usage
+@cindex help
+
+The best way to see command line options for vguitar, for invoking and running vguitar is to type
+``man vguitar'' or ``vguitar --help''
+
+@node Tunings,,,TOP
+@chapter Tunings
+
+@node Strum keyboard,,,TOP
+@chapter Strum Keyboard
+
+In strum (-S) mode, the keyboard is configured as following:
+
+@table @option
+
+@item space
+sound a strum
+
+@item m
+mute on/off
+
+@item u
+roll up/down
+
+@item k
+mark key for chord
+
+@item [j|l] [n|p] - 
+cursor motion
+
+@item Keys [eadgbh]
+move cursor to string E, A, D, G, B H (h is hi-E)
+
+@item Keys [0...9]
+move cursor to fret number
+
+@item Keys [.|-] 
+shorten/lengthen the roll
+
+@end table
+
+
+@node Tablature keyboard,,,TOP
+
+@table @option
+
+@item space 
+move cursor to next time
+
+@item Keys[0...9] 
+set fret number
+
+@item Key Octothorpe '#'
+sets a rest.
+
+@item Key Forward Slash '/'
+sets a slide.
+
+@item Keys '[' and ']' 
+set the clip interval
+
+@item Key 'c' (or space bar)
+plays selected clip
+
+@item Keys [j|l] [n|p] 
+move cursor
+
+@item Keys [eadgbh] 
+move cursor to string (h is hi-E)
+
+@item Key [x] 
+delete the note
+
+@item Keys [.|-] 
+shorten/lengthen the note
+@end table
+
+@node Map keyboard,,,TOP
+
+@node Examples,,,TOP
+vguitar -A 130 -P 0 -c -t --input auld-lang-syne.txt
+
+vguitar -A 130 -P 0 --strum --roll=0.1
+
+@node Reporting bugs,,,TOP
+@chapter Reporting bugs
+
+@cindex bug reporting
+@cindex problems
+@cindex reporting bugs
+
+To report bugs, suggest enhancements or otherwise discuss GNU Vguitar,
+please send electronic mail to @email{nicks@@nick-strauss.com}
+
+@cindex checklist for bug reports
+For bug reports, please include enough information for the maintainers
+to reproduce the problem.  Generally speaking, that means:
+
+@itemize @bullet
+@item The version numbers of Vguitar (which you can find by running
+      @w{@samp{vguitar --version}}) and any other program(s) or
+      manual(s) involved.
+@item Hardware and operating system names and versions.
+@item The contents of any input files necessary to reproduce the bug.
+@item The expected behavior and/or output.
+@item A description of the problem and samples of any erroneous output.
+@item Options you gave to @command{configure} other than specifying
+      installation directories.
+@item Anything else that you think would be helpful.
+@end itemize
+
+When in doubt whether something is needed or not, include it.  It's
+better to include too much than to leave out something important.
+
+@cindex patches, contributing
+Patches are welcome; if possible, please make them with @samp{@w{diff
+-c}} (@pxref{Top,, Overview, diff, Comparing and Merging Files}) and
+include @file{ChangeLog} entries (@pxref{Change Log,,, emacs, The GNU
+Emacs Manual}).  Please follow the existing coding style.
+
+
+@node GNU Free Documentation License,,,TOP
+@appendix GNU Free Documentation License
+
+@include fdl.texi
+
+
+@node Concept index,,,TOP
+@unnumbered Concept index
+
+@printindex cp
+
+@bye
