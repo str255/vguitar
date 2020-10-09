@@ -211,7 +211,7 @@ open  D tuning  -- D A D F♯ A D
 #define MIDI_C4 60 //C4
 #define MIDI_B3 59 //B3
 #define MIDI_G3 55 //G3
-#define MIDI_D2 50 //D2
+#define MIDI_D3 50 //D3
 #define MIDI_A2 45 //A2
 #define MIDI_F2 41 //F2
 #define MIDI_E2 40 //E2
@@ -221,7 +221,7 @@ open  D tuning  -- D A D F♯ A D
 #define F_TUNE 41 //F2
 #define B_TUNE 59 //B3
 #define G_TUNE 55 //G3
-#define D_TUNE 50 //D2
+#define D_TUNE 50 //D3
 #define A_TUNE 45 //A2
 #define E_TUNE 40 //E2
 
