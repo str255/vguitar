@@ -35,6 +35,13 @@ extern int strings_col[];
 extern int strings_picked[];
 #endif
 
+typedef enum tuning_mode {
+  TUNING_EADGBE,
+  TUNING_OPEND,
+  TUNING_FREQ,
+  TUNING_MIDI,
+} tuning_mode;
+
 typedef enum post_type {
   TABLATURE,
   BOXPING,
@@ -143,9 +150,10 @@ chord *chord_set();   // create a chord, from strings
 
 void output_voices_alltuning(post *gnos, int verbose);
 void output_voices(post *gnos, int verbose);
+void output_voices_standard(post *gnos, int verbose);
 void output_voices_openD(post *gnos, int verbose);
 void output_voices_midi(post *gnos, int verbose);
-void output_voices_openD_and_midi(post *gnos, int verbose, bool is_midi);
+void output_voices_openD_and_midi(post *gnos, int verbose, tuning_mode is_midi);
 void strum_voices(post *gnos,  int piano_roll);
 void strum_voices2(int strings_used[NUM_GSTRINGS], int strings_col[NUM_GSTRINGS], int piano_roll,
 		   int strings_picked[NUM_GSTRINGS]);
@@ -211,7 +219,7 @@ open  D tuning  -- D A D F♯ A D
 #define MIDI_C4 60 //C4
 #define MIDI_B3 59 //B3
 #define MIDI_G3 55 //G3
-#define MIDI_D3 50 //D3
+#define MIDI_D2 50 //D2
 #define MIDI_A2 45 //A2
 #define MIDI_F2 41 //F2
 #define MIDI_E2 40 //E2
@@ -221,7 +229,7 @@ open  D tuning  -- D A D F♯ A D
 #define F_TUNE 41 //F2
 #define B_TUNE 59 //B3
 #define G_TUNE 55 //G3
-#define D_TUNE 50 //D3
+#define D_TUNE 50 //D2
 #define A_TUNE 45 //A2
 #define E_TUNE 40 //E2
 

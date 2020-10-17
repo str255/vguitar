@@ -61,12 +61,14 @@ typedef enum run_mode {
   do_box,
 } run_mode;
 
+#if 0
 typedef enum tuning_mode {
   TUNING_EADGBE,
   TUNING_OPEND,
   TUNING_FREQ,
   TUNING_MIDI,
 } tuning_mode;
+#endif
 
 typedef struct options_vguitar {
   int     headless;          // headless, if true 

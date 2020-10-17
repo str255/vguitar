@@ -96,44 +96,7 @@ vguitar::drawing()
 
 	guitar.draw_strings();
 
-	//        guitar.update_tablature();
-
-#if 0 /*to ::drawing */
-	/* draw cursor */
-	move(kp.row*string_size,nut+(kp.col+1)*vtime_size); //addch(kp.fret);
-	refresh();
-#endif      
-
-	//  draw_remembered_chords();
-	//  update_strum2();
-
-#if 0
-  // redraw basetime and frets
-
-  draw_basetime();
-
-  draw_strings();
-
-  
-  draw_bridge(strings_picked);
-	
-  draw_clear_clip();
-
-  draw_remembered_chords();
-
-  update_strum2();
-
-  /* draw cursor */
-  move(kp.row*string_size,nut+(kp.col+1)*vtime_size); //addch(kp.fret);
-  refresh();
-#endif
 }
-#if 0
-int open_strings[NUM_GSTRINGS]={1,1,1,1,1,1};
-int strings_used[NUM_GSTRINGS]={0, 0, 0, 0, 0, 0};
-int strings_col[NUM_GSTRINGS]={0, 0, 0, 0, 0, 0};
-int strings_picked[NUM_GSTRINGS]={1, 0, 0, 2, 3, 0};
-#endif
 
 const char client_name[]="Virtual Guitar";
 static snd_seq_t *seq_handle = NULL;
@@ -494,18 +457,6 @@ void vguitar::draw_strings()
       string = i+1;
       move(string*string_size,nut+0); addch(draws[i]);
     }
-#if 0
-    string = 2;
-    move(string*string_size,nut+0);addch('B');
-    string = 3;
-    move(string*string_size,nut+0);addch('G');
-    string = 4;
-    move(string*string_size,nut+0);  addch('D');
-    string = 5;
-    move(string*string_size,nut+0);   addch('A');
-    string = 6;
-    move(string*string_size,nut+0);addch('E');                  
-#endif
   }
   /* Draw six strings, for visible vtime */
   for (string=1;string<number_strings+1;string++){
@@ -1401,6 +1352,7 @@ pitch bend
 
 */
 
+#if 0
 void output_voices(post *gnos, int verbose)
 {
   post     *apost = NULL;
@@ -1561,6 +1513,7 @@ void output_voices(post *gnos, int verbose)
     sleep(beat_duration);*/
 
 }
+#endif
 
 void strum_voices(post *gnos, int piano_roll)
 {
@@ -1935,22 +1888,29 @@ setchord(int fret_eh, int fret_b, int fret_g, int fret_d, int fret_a, int fret_e
 
 void output_voices_openD(post *gnos, int verbose)
 {
-  output_voices_openD_and_midi(gnos, verbose, false);
+  output_voices_openD_and_midi(gnos, verbose, TUNING_OPEND);
 }
 
 void output_voices_midi(post *gnos, int verbose)
 {
-  output_voices_openD_and_midi(gnos, verbose, true);
+  output_voices_openD_and_midi(gnos, verbose, TUNING_MIDI);
 }
 
-void output_voices_openD_and_midi(post *gnos, int verbose, bool is_midi)
+void output_voices_standard(post *gnos, int verbose)
+{
+  output_voices_openD_and_midi(gnos, verbose, TUNING_EADGBE);
+}
+
+void output_voices_openD_and_midi(post *gnos, int verbose, tuning_mode is_midi)
 {
   int    i;
+  int    pit;
   post     *apost = NULL;
   int beats_per_minute = Options.bpm, start, end;
   double beat_duration = 60./(double)beats_per_minute;
   int strings[NUM_GSTRINGS]={OPEND_1_STRING, OPEND_2_STRING, OPEND_3_STRING, 
 			     OPEND_4_STRING, OPEND_5_STRING, OPEND_6_STRING};
+  int standard_strings[NUM_GSTRINGS]={E_STRING, A_STRING, D_STRING, G_STRING, B_STRING, EHI_STRING};
   int to_seq_client = Options.alsa_server_addr;  // sequencer client no. (fluid synth)
   int to_seq_port = Options.alsa_server_port;    // sequencer port no.
   unsigned int caps;
@@ -1962,7 +1922,7 @@ void output_voices_openD_and_midi(post *gnos, int verbose, bool is_midi)
   float duration = 1.0;
   //  int foo = 0;
 
-  if (is_midi){
+  if (is_midi==TUNING_MIDI){
 
     if (verbose) 
       printf("MIDI number tuning %d,%d,%d,%d,%d,%d\n",
@@ -1975,6 +1935,18 @@ void output_voices_openD_and_midi(post *gnos, int verbose, bool is_midi)
 
     for (i=0;i<NUM_GSTRINGS;i++)
       strings[i]=Options.strings_tuning_midi[i];
+  }
+  else if (is_midi==TUNING_EADGBE){
+    for (i=0;i<NUM_GSTRINGS;i++)
+      strings[i]=standard_strings[i];
+    if (verbose)
+      printf("strings tuning %d,%d,%d,%d,%d,%d\n",
+	   strings[0],
+	   strings[1],
+	   strings[2],
+	   strings[3],
+	   strings[4],
+	   strings[5]);
   }
   else {
     if (verbose)
@@ -2052,15 +2024,16 @@ void output_voices_openD_and_midi(post *gnos, int verbose, bool is_midi)
       duration = apost->duration;
       snd_seq_event_output(seq_handle, &event);
       snd_seq_drain_output(seq_handle);
-#if 1
-      int pit;
-     for (pit=0;pit<8191;pit++){
-      snd_seq_ev_set_pitchbend(&event, 0, pit);
-      snd_seq_event_output(seq_handle, &event);
-      snd_seq_drain_output(seq_handle);
-      usleep(msec*0.000001);
-      }
-#endif
+
+      //-8192..8191
+      if (apost->bend)
+	for (pit=0;pit<8191;pit++){	
+	  snd_seq_ev_set_pitchbend(&event, 0, pit);
+	  snd_seq_event_output(seq_handle, &event);
+	  snd_seq_drain_output(seq_handle);
+	  //	  usleep(msec*0.0001);
+	  usleep(msec*0.00001);
+	}
 
       apost = apost->next;
     }
@@ -2091,7 +2064,7 @@ void output_voices_alltuning(post *gnos, int verbose)
   if (Options.tuning == TUNING_OPEND)
     output_voices_openD(gnos, verbose);
   else if (Options.tuning == TUNING_EADGBE)
-    output_voices(gnos, verbose);
+    output_voices_standard(gnos, verbose);
   else if (Options.tuning == TUNING_MIDI)
     output_voices_midi(gnos, verbose);
   else {
